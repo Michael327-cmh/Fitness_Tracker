@@ -45,6 +45,6 @@ const API = {
   },
 };
 
-API;
+
 module.exports = router;
 
