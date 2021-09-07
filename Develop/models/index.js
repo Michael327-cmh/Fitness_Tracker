@@ -11,3 +11,7 @@ async function init() {
   }
 }
 
+module.exports = {
+  exercise: require("./exercise"),
+  stats: require("./stats")
+};
