@@ -10,7 +10,6 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(require("./routes/ApiS.js"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adventuring", {
   useNewUrlParser: true,
@@ -18,6 +17,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adventuring", {
   useUnifiedTopology: true
 });
 
+app.use(require("./routes/api.js"));
 
 
 app.listen(PORT, () => {
