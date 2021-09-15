@@ -22,16 +22,28 @@ router.post("/api/Exercise/bulk", ({ body }, res) => {
     });
 });
 
-router.get("/api/Exercise", (req, res) => {
+router.get("/api/Exercise/range", (req, res) => {
   Exercise.find({})
     .sort({ date: -1 })
+    .limit(7)
     .then(Exercise => {
-      res.send(Exercise);
+      res.json(Exercise);
     })
     .catch(err => {
       res.status(400).json(err);
     });
 });
+
+router.get("/api/Exercise", (req, res) => {
+  Exercise.find({})
+  .then((Exercise) => {
+    res.json(Exercise);
+  })
+  .catch((err) => {
+    res.json(err);
+    });
+});
+
 
 router.put("/api/Exercise/:id", (req, res) => {
   Exercise.findById(req.params.id, function (err, workoutById) {
